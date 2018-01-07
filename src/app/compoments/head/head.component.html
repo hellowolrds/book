@@ -1,0 +1,13 @@
+<div class="topbar">	
+	<header class="header">
+		<!-- 这里有个坑，第一次执行完并没有赋值，titleName为undiluted -->
+		<h2 class="header-logo">{{titleName||"我的书架"}}</h2>
+
+		<div class="nav" *ngIf="types == 2">
+			<div class="sex">
+				<span class="active">男生</span><span>女生</span>
+			</div>
+		</div>
+		<a routerLink="/search" class="search"><i class="iconfont icon-wxbsousuotuiguang"></i></a>
+	</header>
+</div>
