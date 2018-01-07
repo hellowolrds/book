@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule }    from '@angular/http';
 // 配置路由
 import { RouterModule, Routes } from '@angular/router';
 
@@ -16,6 +17,10 @@ import { BestComponent } from './compoments/best/best.component';
 import { CategoryComponent } from './compoments/category/category.component';
 // 导入排行
 import { RankComponent } from './compoments/rank/rank.component';
+// 导入加载动画
+import { LoadingComponent } from './compoments/loading/loading.component';
+// 导入书板块模块
+import { BookSectionComponent } from './compoments//bookSection/bookeSection.component';
 // 定义路由
 const appRoutes: Routes = [
   {path: '', redirectTo:'book', pathMatch: 'full'},
@@ -35,10 +40,13 @@ const appRoutes: Routes = [
     BookComponent,
     BestComponent,
     CategoryComponent,
-    RankComponent
+    RankComponent,
+    LoadingComponent,
+    BookSectionComponent
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     RouterModule.forRoot(
       appRoutes
     )

@@ -1,0 +1,8 @@
+[
+	{
+		"/books/*": {
+			"target":"http://www.tdon.site",
+			"secure": false
+		}
+	}
+]
