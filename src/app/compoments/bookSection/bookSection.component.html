@@ -1,21 +1,8 @@
 <div class="book-section">
-	<div class="title">
-		<h2>男生热门<a>更多></a></h2>
-	</div>
-	<div class="book-list">
-		<ul>
-			<li>
-				<a href="#">
-					<img src="http://statics.zhuishushenqi.com/agent/http://b.heiyanimg.com/book/46884.jpg@!bm?1" alt="">
-					<div class="book-info">
-						<h3>天命神相</h3>
-						<p class="text-line-comm">
-							九是数字最大的，九是数字最大的，九是数字最大的，九是数字最大的，九是数字最大的，九是数字最大的，九是数字最大的，九是数字最大的，九是数字最大的，九是数字最大的，九是数字最大的，九是数字最大的，九是数字最大的，九是数字最大的，九是数字最大的，
-						</p>
-						<p>蒙面大哥<span class="rank"><em>武侠</em><em>连载中</em><em>2000人气</em></span></p>
-					</div>
-				</a>
-			</li>
-		</ul>
+	<div *ngFor="let book of temp">
+		<div class="title">
+			<h2>{{book.title}}<a>更多></a></h2>
+		</div>
+		<book-list [id]="book._id"></book-list>
 	</div>
 </div>

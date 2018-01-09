@@ -5,7 +5,7 @@
 
 		<div class="nav" *ngIf="types == 2">
 			<div class="sex">
-				<span class="active">男生</span><span>女生</span>
+				<span [ngClass]="{active: flag}" (click)="changeTab()">男生</span><span [ngClass]="{active: !flag}" (click)="changeTab()">女生</span>
 			</div>
 		</div>
 		<a routerLink="/search" class="search"><i class="iconfont icon-wxbsousuotuiguang"></i></a>

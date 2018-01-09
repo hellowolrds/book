@@ -1,8 +1,10 @@
-[
-	{
-		"/books/*": {
-			"target":"http://www.tdon.site",
-			"secure": false
+{
+	"/api": {
+		"target":"http://www.tdon.site/api",
+		"secure": false,
+		"changeOrigin":true,
+		"pathRewrite": {
+			"^/api": ""
 		}
 	}
-]
+}

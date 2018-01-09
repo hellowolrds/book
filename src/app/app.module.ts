@@ -20,7 +20,9 @@ import { RankComponent } from './compoments/rank/rank.component';
 // 导入加载动画
 import { LoadingComponent } from './compoments/loading/loading.component';
 // 导入书板块模块
-import { BookSectionComponent } from './compoments//bookSection/bookeSection.component';
+import { BookSectionComponent } from './compoments/bookSection/bookeSection.component';
+// bookList模块
+import { BookListComponent } from './compoments/bookList/bookList.component';
 // 定义路由
 const appRoutes: Routes = [
   {path: '', redirectTo:'book', pathMatch: 'full'},
@@ -42,7 +44,8 @@ const appRoutes: Routes = [
     CategoryComponent,
     RankComponent,
     LoadingComponent,
-    BookSectionComponent
+    BookSectionComponent,
+    BookListComponent
   ],
   imports: [
     BrowserModule,

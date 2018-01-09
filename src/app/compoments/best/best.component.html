@@ -1,7 +1,10 @@
 <div class="best">
-	<app-head [titleName]="'RM'" [types]="2"></app-head>
+	<app-head [titleName]="'RM'" [types]="2" (sex)="changeSex($event)"></app-head>
 	<div class="banner">
 		<img src="http://statics.zhuishushenqi.com/recommendPage/151511709307582" alt="">
 	</div>
-	<app-section></app-section>
+	<!-- 加载动画判断 -->
+	<!-- <app-loading *ngIf="!flag"></app-loading> -->
+	<!-- <app-section *ngIf="flag" [books]="books"></app-section> -->
+	<app-section [flag]="flag"></app-section>
 </div>

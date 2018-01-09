@@ -1,0 +1,16 @@
+<div class="book-list">
+	<ul>
+		<li *ngFor="let data of sectionBooks">
+			<a href="#">
+				<img [src]="data.book.cover" alt="">
+				<div class="book-info">
+					<h3>{{data.book.title}}</h3>
+					<p class="text-line-comm">
+						{{data.book.shortIntro}}
+					</p>
+					<p>{{ data.book.author }}<span class="rank"><em>{{ data.book.majorCate }}</em><em>{{data.book.isSerial?"连载中":"完结"}}</em><em>{{ data.book.latelyFollower }}人气</em></span></p>
+				</div>
+			</a>
+		</li>
+	</ul>
+</div>
