@@ -1,4 +1,35 @@
 <div class="rank">
-	<app-head [titleName]="'排行'" [types]="2"></app-head>
-	<p>这是我的排行</p>
+	<app-head [titleName]="'排行'" [types]="2" (sex)="changeSex($event)"></app-head>
+	<div style="padding-top: 40px;"></div>
+	<div class="rank-section">
+		<div class="rank-bar">
+			<ul class="rank-list" *ngFor="let myrank of sex">
+				<li class="rank-item" [ngClass]="rankid === myrank._id ? 'rank-item active': 'rank-item'" (click)="change(myrank._id)">
+					{{myrank.title}}
+				</li>
+				<!-- <li class="rank-item active">
+					最热榜
+				</li> -->
+			</ul>
+		</div>
+		<div class="book-rank">
+			<section class="book-list-comm">
+				<ol class="book-list-content">
+					<li class="book-list-li" *ngFor="let book of bookList">
+						<a routerLink="/detail/{{book._id}}">
+							<img src="{{staticUrl+book.cover}}" alt="" class="book-list-book-cover">
+							<div class="book-info">
+								<h3>{{ book.title }}</h3>
+								<p><span>作者: {{ book.author }}</span></p>
+								<p class="text-line-comm">{{book.shortIntro}}</p>
+								<p><span style="color: #ed424b;">{{book.retentionRatio}}%留存</span> | <span style="color: #4284ed;">{{book.latelyFollower}}人气</span></p>
+							</div>
+						</a>
+					</li>
+				</ol>
+			</section>
+		</div>
+	</div>
+	<!-- 公共tabbar -->
+	<tab-bar [title]="4"></tab-bar>
 </div>

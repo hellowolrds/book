@@ -1,0 +1,83 @@
+<div class="detail">
+	<!-- 书本详情页 -->
+	<!-- 头部 -->
+	<header class="header">
+		<h3>
+			<a class="return" routerLink="/best"><i class="iconfont icon-wxbzhuye"></i></a>书籍详情
+		</h3>
+	</header>
+	<section class="book-info-section">
+		<div class="book-detail">
+			<img src="{{staticUrl+book.cover}}" class="book-cover" alt="{{book.title}}">
+			<div class="book-desc">
+				<h2 class="book-title">
+					{{book.title}}
+				</h2>
+				<p class="book-meta red">
+					{{book.author}}
+				</p>
+				<p class="book-meta">{{book.majorCate}}/{{book.minorCate}}</p>
+				<p class="book-meta">{{ book.wordCount }}字 | {{ book.isSerial ? '连载中' : '完结'}}</p>
+			</div>
+		</div>
+		<div class="book-reader">
+			<p class="reader-item">
+				<span class="title">追人气</span>
+				<span class="content">{{ book.latelyFollower }}</span>
+			</p>
+			<p class="reader-item">
+				<span class="title">读者留存率</span>
+				<span class="content">{{ book.retentionRatio }}%</span>
+			</p>
+			<p class="reader-item">
+				<span class="title">日更新字数/天</span>
+				<span class="content">{{ book.serializeWordCount < 0 ? 0 : book.serializeWordCount }}</span>
+			</p>
+		</div>
+		<div class="book-intro part">
+			<p class="long-intro">
+				{{book.longIntro}}
+			</p>
+		</div>
+		<div class="book-menu">
+			<a href="">
+				<div class="menu-title">
+					目录
+				</div>
+				<p class="menu-content">
+					{{book.updated|date: "yyyy-MM-dd"}}<span>.</span>
+					{{ book.lastChapter }}
+				</p>
+			</a>
+		</div>
+	</section>
+	<section class="review">
+		<h2>热门书评</h2>
+		<ul class="review-list">
+			<li class="review-item" *ngFor = "let p of arr">
+				<img class="avatar" src="{{this.staticUrl + p.author.avatar}}" alt="">
+				<div class="review-content">
+					<p class="name">
+						{{p.author.nickname}}<span class="time">{{p.updated|date:"yyyy-MM-dd"}}</span>
+					</p>
+					<p class="title">
+						{{p.title}}
+					</p>
+					<p class="content text-line-comm">{{p.content}}</p>
+					<p class="like"><span><i class="iconfont icon-good"></i></span>{{p.likeCount}}</p>
+				</div>
+			</li>
+		</ul>
+	</section>
+	<section class="recommend" *ngIf="contact.length > 0">
+		<h4>同类推荐<a href="#">更多></a></h4>
+		<ul class="recommend-list">
+			<li class="recommend-item" *ngFor="let book of contact">
+				<a routerLink="/detail/{{book._id}}">
+					<img src="{{staticUrl + book.cover }}" alt="{{book.title}}" class="cover">
+					<p>{{book.title}}</p>
+				</a>
+			</li>
+		</ul>
+	</section>
+</div>

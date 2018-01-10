@@ -1,4 +1,19 @@
 <div class="category">
 	<app-head [titleName]="'分类'" [types]="1"></app-head>
-	<p>这是我的分类</p>
+	<div style="padding-top: 40px;"></div>
+	<section class="cat" *ngFor="let key of category; index as i; trackBy: trackByFn">
+		<h3 class="cat-title">{{key}}</h3>
+		<ul class="cat-list">
+			<li class="cat-item" *ngFor="let book of books[i]">
+				<a routerLink="/catlist/{{book.name}}/{{gender[i]}}">
+					<p class="cat-name">{{book.name}}</p>
+					<p class="cat-count">{{book.bookCount}}本</p>
+				</a>
+			</li>
+		</ul>
+	</section>
+
+	<!-- 公共tabbar -->
+	<tab-bar [title]="3"></tab-bar>
+
 </div>

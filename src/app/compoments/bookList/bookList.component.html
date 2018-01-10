@@ -1,7 +1,7 @@
 <div class="book-list">
 	<ul>
 		<li *ngFor="let data of sectionBooks">
-			<a href="#">
+			<a routerLink="/detail/{{data.book._id}}">
 				<img [src]="data.book.cover" alt="">
 				<div class="book-info">
 					<h3>{{data.book.title}}</h3>

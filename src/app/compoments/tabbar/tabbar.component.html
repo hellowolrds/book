@@ -1,0 +1,27 @@
+<!-- 制作公共底部tabbar -->
+<div class="tabbar">
+	<div [ngClass]="title == 1?'item active':'item'">
+			<a routerLink="/book">
+				<div><i class="iconfont icon-wxbzhuye"></i></div>
+				<p>首页</p>
+			</a>
+		</div>
+		<div [ngClass]="title == 2?'item active':'item'">
+			<a routerLink="/best">
+				<div><i class="iconfont icon-comments"></i></div>
+				<p>精选</p>
+			</a>
+		</div>
+		<div [ngClass]="title == 3?'item active':'item'">
+			<a routerLink="/category">
+				<div><i class="iconfont icon-iconfontxingxing"></i></div>
+				<p>分类</p>
+			</a>
+		</div>
+		<div [ngClass]="title == 4?'item active':'item'">
+			<a routerLink="/rank">
+				<div><i class="iconfont icon-good"></i></div>
+				<p>排行</p>
+			</a>
+	</div>
+</div>
