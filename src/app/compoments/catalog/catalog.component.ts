@@ -21,6 +21,8 @@ export class CatalogComponent implements OnChanges, OnInit {
 	public returnId = '';
 	// 定义加载动画
 	public load:boolean = true;
+	// 正序和倒序排列
+	public sort:boolean = true;
 
 	constructor (private route: ActivatedRoute, private http:Http) {
 		this.route.params.subscribe(params=>{
@@ -54,5 +56,10 @@ export class CatalogComponent implements OnChanges, OnInit {
 	}
 	ngOnChanges (changes: SimpleChanges) {
 		
+	}
+	// 改变排序顺序
+	change () {
+		this.sort = !this.sort;
+		this.bookItem.reverse();
 	}
 }

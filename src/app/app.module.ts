@@ -33,6 +33,10 @@ import { CatListComponent } from './compoments/catList/catList.component';
 import { CatalogComponent } from './compoments/catalog/catalog.component';
 // 导入章节内容部分
 import { BookContentComponent } from './compoments/bookContent/bookContent.component';
+// 导入更多图书页面
+import { MoreComponent } from './compoments/more/more.component';
+// 导入立即阅读
+import { BookBarComponent } from './compoments/bookbar/bookbar.component';
 // 定义路由
 const appRoutes: Routes = [
   {path: '', redirectTo:'book', pathMatch: 'full'},
@@ -44,7 +48,8 @@ const appRoutes: Routes = [
     {path: 'detail/:id', component: DetailComponent},
     {path: 'catlist/:name/:gender', component: CatListComponent},
     {path: 'catalog/:id', component: CatalogComponent},
-    {path: 'content/:bookId/:id', component: BookContentComponent}
+    {path: 'content/:bookId/:id', component: BookContentComponent},
+    {path: 'more/:id/:name', component: MoreComponent}
 ];
 @NgModule({
   declarations: [
@@ -62,7 +67,9 @@ const appRoutes: Routes = [
     TabbarComponent,
     CatListComponent,
     CatalogComponent,
-    BookContentComponent
+    BookContentComponent,
+    MoreComponent,
+    BookBarComponent
   ],
   imports: [
     BrowserModule,

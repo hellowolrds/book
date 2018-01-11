@@ -30,8 +30,6 @@ export class BookSectionComponent implements  OnChanges{
 				this.books = res.json().data;
 				this.category();
 				this.temp = this.female;
-				// 改变加载状态
-				this.changeLoad.emit(false);
 			})
 	}
 	ngOnChanges(changes: SimpleChanges) {
@@ -39,7 +37,10 @@ export class BookSectionComponent implements  OnChanges{
     		this.male : this.female;
   	}
   	// 给父组件传值
-
+  	getStatus (flag) {
+  		// 改变加载状态
+		this.changeLoad.emit(false);
+  	}
 
 	// 将books分类
 	category () {

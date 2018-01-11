@@ -1,8 +1,8 @@
 <div class="book-section">
 	<div *ngFor="let book of temp" style="margin-top: 10px;">
 		<div class="title">
-			<h2>{{book.title}}<a>更多></a></h2>
+			<h2>{{book.title}}<a routerLink="/more/{{book._id}}/{{book.title}}">更多></a></h2>
 		</div>
-		<book-list [id]="book._id"></book-list>
+		<book-list [id]="book._id" (changeLoad)="getStatus($event)"></book-list>
 	</div>
 </div>

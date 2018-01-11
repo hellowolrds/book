@@ -1,0 +1,24 @@
+<section class="book-more">
+	<section class="back-bar">
+		<span class="back"><a routerLink="/best"><</a></span>
+		<h2>{{name}}</h2>
+	</section>
+	<div style="padding-top: 40px"></div>
+	<section class="book-list-comm" *ngIf="!load">
+		<ol class="book-list-content">
+			<li *ngFor="let data of bookList">
+				<a routerLink="/detail/{{data.book._id}}">
+					<img [src]="data.book.cover" alt="">
+					<div class="book-info">
+						<h3>{{data.book.title}}</h3>
+						<p class="text-line-comm">
+							{{data.book.shortIntro}}
+						</p>
+						<p>{{ data.book.author }}<span class="rank"><em>{{ data.book.majorCate }}</em><em>{{data.book.isSerial?"连载中":"完结"}}</em><em>{{ data.book.latelyFollower }}人气</em></span></p>
+					</div>
+				</a>
+			</li>
+		</ol>
+	</section>
+	<app-loading *ngIf="load"></app-loading>
+</section>

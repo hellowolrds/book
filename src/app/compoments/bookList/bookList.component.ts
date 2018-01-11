@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges, OnChanges } from '@angular/core';
+import { Component, Input, SimpleChanges, OnChanges, EventEmitter, Output } from '@angular/core';
 
 // 导入http服务
 import { Http } from '@angular/http';
@@ -14,6 +14,8 @@ export class BookListComponent implements OnChanges {
 
 	@Input("id") id;
 	public sectionBooks;
+	// 改变加载状态
+	@Output() changeLoad: EventEmitter<boolean> = new EventEmitter();
 	constructor ( private http : Http, ) {
 
 	}
@@ -23,7 +25,7 @@ export class BookListComponent implements OnChanges {
 			.toPromise()
 			.then((res)=>{
 				this.sectionBooks = res.json().data;
-				console.log(this.sectionBooks);
+				this.changeLoad.emit(false);
 			})
 	}
 }

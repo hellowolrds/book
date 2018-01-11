@@ -5,7 +5,8 @@
 	</div>
 	<h4 *ngIf="!load" class="chapter-head">
 		<span class="total">共{{book.chaptersCount}}章</span>
-		<span class="sort">倒序</span>
+		<span class="sort" *ngIf="sort" (click)="change()">倒序</span>
+		<span class="sort" *ngIf="!sort" (click)="change()">正序</span>
 	</h4>
 	<div *ngIf="!load" class="chapter-list-section">
 		<div class="chapter-bar">正文卷</div>
