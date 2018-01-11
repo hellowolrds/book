@@ -1,4 +1,4 @@
-<div class="category">
+<div class="category" *ngIf="!load">
 	<app-head [titleName]="'分类'" [types]="1"></app-head>
 	<div style="padding-top: 40px;"></div>
 	<section class="cat" *ngFor="let key of category; index as i; trackBy: trackByFn">
@@ -17,3 +17,5 @@
 	<tab-bar [title]="3"></tab-bar>
 
 </div>
+
+<app-loading *ngIf="load"></app-loading>

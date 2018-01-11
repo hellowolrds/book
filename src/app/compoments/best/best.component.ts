@@ -12,6 +12,8 @@ import 'rxjs/add/operator/toPromise';
 export class BestComponent {
 	// 性别切换
 	public flag:boolean = false;
+	// 加载动画显示
+	public load:boolean = true;
 	constructor (private http: Http) {
 		// this.http.get("/api/recommendPage/nodes/5910018c8094b1e228e5868f")
 		// 	.toPromise()
@@ -22,8 +24,12 @@ export class BestComponent {
 		// 		console.log(this.books);
 		// 	})
 	}
-
+	// 改变性别
 	changeSex (flag) {
 		this.flag = flag;
+	}
+	// 改变加载状态
+	changeLoad (flag) {
+		this.load = flag;
 	}
 }

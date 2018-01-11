@@ -13,7 +13,7 @@ import 'rxjs/add/operator/toPromise';
 })
 
 export class BookContentComponent implements OnChanges, OnInit {
-
+	// 单个章节
 	public content={cpContent: ''};
 	// 所有图书的章节
 	public chapters:Array<any> = [];

@@ -17,6 +17,9 @@ export class RankComponent {
 	public bookList:Array<any> = [];
 	public rankid;
 	public staticUrl:String = "http://statics.zhuishushenqi.com";
+
+	// 初始加载动画
+	public load:boolean = true;
 	constructor (private http:Http) {
 		http.get("/api/ranking/gender")
 			.toPromise()
@@ -40,6 +43,7 @@ export class RankComponent {
 	// 切换榜单
 	change (id) {
 		this.rankid = id;
+		this.load = true;
 		this.getBookList();
 	}
 
@@ -50,6 +54,7 @@ export class RankComponent {
 					.then(response=>{
 						this.bookList = response.json().ranking.books;
 						// console.log(response.json())
+						this.load = false;
 					})
 	}
 }

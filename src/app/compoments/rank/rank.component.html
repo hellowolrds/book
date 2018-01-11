@@ -12,7 +12,7 @@
 				</li> -->
 			</ul>
 		</div>
-		<div class="book-rank">
+		<div class="book-rank" *ngIf="!load">
 			<section class="book-list-comm">
 				<ol class="book-list-content">
 					<li class="book-list-li" *ngFor="let book of bookList">
@@ -30,6 +30,7 @@
 			</section>
 		</div>
 	</div>
+	<app-loading *ngIf="load"></app-loading>
 	<!-- 公共tabbar -->
 	<tab-bar [title]="4"></tab-bar>
 </div>

@@ -6,7 +6,7 @@
 			<a class="return" routerLink="/best"><i class="iconfont icon-wxbzhuye"></i></a>书籍详情
 		</h3>
 	</header>
-	<section class="book-info-section">
+	<section *ngIf="!load" class="book-info-section">
 		<div class="book-detail">
 			<img src="{{staticUrl+book.cover}}" class="book-cover" alt="{{book.title}}">
 			<div class="book-desc">
@@ -51,7 +51,7 @@
 			</a>
 		</div>
 	</section>
-	<section class="review">
+	<section *ngIf="!load" class="review">
 		<h2>热门书评</h2>
 		<ul class="review-list">
 			<li class="review-item" *ngFor = "let p of arr">
@@ -69,7 +69,7 @@
 			</li>
 		</ul>
 	</section>
-	<section class="recommend" *ngIf="contact.length > 0">
+	<section *ngIf="!load" class="recommend">
 		<h4>同类推荐<a href="#">更多></a></h4>
 		<ul class="recommend-list">
 			<li class="recommend-item" *ngFor="let book of contact">
@@ -80,4 +80,5 @@
 			</li>
 		</ul>
 	</section>
+	<app-loading *ngIf="load"></app-loading>
 </div>

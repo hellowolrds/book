@@ -16,11 +16,15 @@ export class CategoryComponent {
 	public category:Array<any> = [];
 	public books:Array<any> = [];
 	public gender:Array<any> = [];
+	// 定义加载状态
+	public load:boolean = true;
 	constructor (private http:Http) {
 		this.http.get("/api/cats/lv2/statistics")
 			.toPromise()
 			.then(res=>{
 				this.arr = res.json();
+				// 停止加载动画
+				this.load = false;
 				var i = 0;
 				for ( var key in this.arr ) {
 					switch (key) {

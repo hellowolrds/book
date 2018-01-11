@@ -17,8 +17,10 @@ export class CatalogComponent implements OnChanges, OnInit {
 	public book = {};
 	public bookItem:Array<any> = [];
 	public bookId = '';
-
+	// 返回书本id
 	public returnId = '';
+	// 定义加载动画
+	public load:boolean = true;
 
 	constructor (private route: ActivatedRoute, private http:Http) {
 		this.route.params.subscribe(params=>{
@@ -40,6 +42,8 @@ export class CatalogComponent implements OnChanges, OnInit {
 								.toPromise()
 								.then(chapters=>{									
 									this.bookItem = chapters.json().chapters;
+									// 取消加载动画
+									this.load = false;
 								})
 						})
 				});

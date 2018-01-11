@@ -13,6 +13,8 @@ import 'rxjs/add/operator/toPromise';
 })
 
 export class DetailComponent implements OnChanges, OnInit {
+	// 定义加载动画
+	public load:boolean = true;
 	// 书籍详情
 	public book={};
 	// 评论详情
@@ -39,6 +41,7 @@ export class DetailComponent implements OnChanges, OnInit {
 				.toPromise()
 				.then(res=>{
 					this.contact = res.json().books.splice(0, 4);
+					this.load = false;
 				})
 		});
 	}

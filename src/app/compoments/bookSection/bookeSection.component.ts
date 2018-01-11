@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges, OnChanges } from '@angular/core';
+import { Component, Input, SimpleChanges, OnChanges, EventEmitter, Output } from '@angular/core';
 
 // 导入http服务
 import { Http } from '@angular/http';
@@ -21,6 +21,8 @@ export class BookSectionComponent implements  OnChanges{
 	public temp;
 	// 接收父组件传值
 	@Input('flag') flag;
+	// 改变加载状态
+	@Output() changeLoad: EventEmitter<boolean> = new EventEmitter();
 	constructor (private http:Http) {
 		this.http.get("/api/recommendPage/nodes/5910018c8094b1e228e5868f")
 			.toPromise()
@@ -28,12 +30,16 @@ export class BookSectionComponent implements  OnChanges{
 				this.books = res.json().data;
 				this.category();
 				this.temp = this.female;
+				// 改变加载状态
+				this.changeLoad.emit(false);
 			})
 	}
 	ngOnChanges(changes: SimpleChanges) {
     	this.temp = changes.flag.currentValue?
     		this.male : this.female;
   	}
+  	// 给父组件传值
+
 
 	// 将books分类
 	category () {
