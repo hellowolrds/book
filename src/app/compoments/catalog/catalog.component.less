@@ -1,0 +1,63 @@
+.book-catalog {
+    background-color: #fff;
+	.chapter-back {
+		position: relative;
+	    overflow: hidden;
+	    height: 40px;
+	    color: #fff;
+	    background-color: #ed424b;
+	    z-index: 1;
+	    .back {
+	    	position: absolute;
+		    top: 8px;
+		    left: 5px;
+		    text-align: center;
+		    a {
+		    	color: #fff;
+				font-size: 14px;
+		    }
+	    }
+	    h3 {
+	    	width: 70%;
+		    margin: 0 auto;
+		    line-height: 40px;
+		    text-align: center;
+		    font-weight: 400;
+		    font-size: 14px;
+	    }
+	}
+	.chapter-head {
+		font-size: 13px;
+		font-weight: 500;
+		padding: 0 20px;
+		line-height: 40px;
+		.sort {
+			float: right;
+		}
+	}
+	.chapter-list-section {
+		.chapter-bar {
+			line-height: 36px;
+		    padding-left: 20px;
+		    color: #969ba3;
+		    background-color: #f6f7f9;
+		}
+		.chapter-list {
+			padding-left: 20px;
+			overflow: auto;
+			.chapter-item {
+				padding: 15px 20px 15px 0;
+			    border-top: 1px solid #f0f1f2;
+			    white-space: nowrap;
+			    text-overflow: ellipsis;
+			    a {
+			    	color: #33373d;
+			    }
+			    .vip {
+			    	float: right;
+			    	color: red;
+			    }
+			}
+		}
+	}
+}

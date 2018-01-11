@@ -1,0 +1,22 @@
+<section class="book-content">
+	<!-- 书本内容部分 -->
+	<h4>{{content.title}}</h4>
+	<div class="content-list">
+		<section *ngFor="let book of list">
+			<h3 *ngIf="!book.isVip">
+				{{book.title}}
+			</h3>
+			<div *ngIf="!book.isVip">
+				<p *ngFor="let p of book.cpContent.split('\n')">
+					{{p}}
+				</p>
+			</div>
+			<div *ngIf="book.isVip">
+				vip章节，请到正版网站阅读
+			</div>
+		</section>
+	</div>
+	<button class="nextChapter" (click)="next()">
+		加载下一章
+	</button>
+</section>
